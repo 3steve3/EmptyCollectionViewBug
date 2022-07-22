@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EmptyCollectionViewBug.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:EmptyCollectionViewBug"
+    x:DataType="viewmodel:ViewModel">
+
+
+    <CollectionView x:Name="collectionView" ItemsSource="{Binding Text}">
+        <CollectionView.Header>
+            <Label Text="This should show for all cases" />
+        </CollectionView.Header>
+        <CollectionView.EmptyView>
+            <Label Text="This should show when no data" />
+        </CollectionView.EmptyView>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Label Text="{Binding .}" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</ContentPage>
